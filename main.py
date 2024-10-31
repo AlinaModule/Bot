@@ -26,10 +26,10 @@ def handle_buttons(message):
                          reply_markup=keyboard, parse_mode='HTML')
     elif text == "Hikka-Telethon":
         article_text = "🎆 <b>Статья:</b> <[Telethon-про модули для Hikka](https://telegra.ph/Telethon-pro-moduli-dlya-Hikka-10-30)>"
-        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button_keyboard())
+        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
     elif text == "RimTUB-Pyrogram":
         article_text = "💉 <b>Статья:</b> <[RimTUB-про то как написать для него модуль](https://telegra.ph/Pyrogram-pro-moduli-dlya-RimTUB-10-30)>"
-        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button_keyboard())
+        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
 
     if text == "ТГ-боты":
         pyrogram_tgbots_button = telebot.types.KeyboardButton("Pyrogram")
@@ -43,13 +43,13 @@ def handle_buttons(message):
                          reply_markup=keyboard, parse_mode='HTML')
     elif text == "Pyrogram":
         article_text = "📀 <b>Статья:</b> <[Pyrogram-про то как написать простого телеграм бота](https://telegra.ph/Pyrogram-razrabotka-bota-10-30)>"
-        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button_keyboard())
+        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
     elif text == "Telethon":
         article_text = "⚙️ <b>Статья:</b> <[Telethon-про то как написать тг-бота](https://telegra.ph/Telethon-kak-napisat-svoego-telegram-bota-10-30)>"
-        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button_keyboard())
+        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
     elif text == "Telebot":
         article_text = "✨ <b>Статья:</b> <[Telebot-о том как написать простого телеграм бота](https://telegra.ph/Telebot-razrabotka-bota-10-30)>"
-        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button_keyboard())
+        bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)

@@ -21,7 +21,7 @@ def send_start_menu(bot, chat_id):
 
     keyboard.add(userbots_button, tg_bots_button)
 
-    bot.send_message(chat_id, "Выберите категорию:", reply_markup=keyboard)
+    bot.send_message(chat_id, "💫 <b>Выберите направление:</b>", reply_markup=keyboard)
 
 def create_back_button():
     """Создает клавиатуру с одной кнопкой 'Назад'"""

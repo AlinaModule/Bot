@@ -1,16 +1,6 @@
 import telebot
 from config import TOKEN, CHANNEL_USERNAME
-from utils import (
-    send_welcome,
-    handle_hikka_button,
-    send_start_menu,
-    handle_userbots,
-    handle_tgbots,
-    handle_rimtub_button,
-    handle_pyrogram_button,
-    handle_telethon_button,
-    handle_telebot_button
-)
+from utils import send_welcome, send_start_menu
 
 # Создаем объект бота
 bot = telebot.TeleBot(TOKEN)

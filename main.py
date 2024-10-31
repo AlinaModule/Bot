@@ -9,6 +9,7 @@ bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(commands=['start'])
 def start_command(message):
     send_welcome(bot, message.chat.id, CHANNEL_USERNAME)
+    send_start_menu(bot, message.chat.id)
 
 # Обработчик нажатий на кнопки
 @bot.message_handler(func=lambda message: True)

@@ -1,2 +1,2 @@
 TOKEN = 
-CHANNEL_USERNAME = '@prgrmng_chnl'
+CHANNEL_USERNAME = '@hikka_dmod'

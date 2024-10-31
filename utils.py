@@ -23,5 +23,16 @@ def send_start_menu(bot, chat_id):
 
     bot.send_message(chat_id, "Выберите категорию:", reply_markup=keyboard)
 
+def create_back_button_keyboard():
+    """Создает клавиатуру с одной кнопкой 'Назад'"""
+    back_button = telebot.types.KeyboardButton('Назад')
+    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.add(back_button)
+    return keyboard
+
+def remove_keyboard():
+    """Убирает клавиатуру"""
+    return telebot.types.ReplyKeyboardRemove()
+
 if __name__ == "__main__":
     bot.polling(none_stop=True)

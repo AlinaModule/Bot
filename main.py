@@ -11,8 +11,20 @@ def start_command(message):
 
 @bot.message_handler(commands=['botinfo'])
 def o_bote_command(message):
+
+    try:
+        chat_member = bot.get_chat_member(CHANNEL_USERNAME, message.chat.id)
+        if chat_member.status not in ['mamber', 'administrator', 'creator']:
+            send_welcome(bot, message.chat.id, CHANNEL_USERNAME)
+            return
+    except Exception as e:
+        print(f'error: {e}')
+        
     o_bote(bot, message.chat.id)
 
+    else:
+        send_start_menu(bot, message.chat.id)
+        
 @bot.message_handler(func=lambda message: True)
 def handle_buttons(message):
     chat_id = message.chat.id
@@ -65,7 +77,6 @@ def handle_buttons(message):
                          reply_markup=keyboard, parse_mode='HTML')
 
     else:
-        send_welcome(bot, message.chat.id, CHANNEL_USERNAME)
         send_start_menu(bot, message.chat.id)
 
 bot.polling(none_stop=True)

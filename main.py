@@ -9,9 +9,9 @@ def start_command(message):
     send_welcome(bot, message.chat.id, CHANNEL_USERNAME)
     send_start_menu(bot, message.chat.id)
 
-@bot.message_handler(commands=['author'])
-def author_command(message):
-    author_info(bot, message.chat.id)
+@bot.message_handler(commands=['botinfo'])
+def o_bote_command(message):
+    o_bote(bot, message.chat.id)
 
 @bot.message_handler(func=lambda message: True)
 def handle_buttons(message):

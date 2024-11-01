@@ -18,6 +18,14 @@ def handle_buttons(message):
     chat_id = message.chat.id
     text = message.text
 
+    try:
+        chat_member = bot.get_chat_member(CHANNEL_USERNAME, chat_id)
+        if chat_member.status not in ['member', 'administrator', 'creator']:
+            send_welcome(bot, chat_id, CHANNEL_USERNAME)
+            return
+    except Exception as e:
+        print(f'Ошибка при проверке подписки: {e}')
+        
     if text in ["Hikka-Telethon", "RimTUB-Pyrogram", "Pyrogram", "Telethon", "Telebot"]:
         if text == "Hikka-Telethon":
             article_text = "🎆 <b>Статья:</b> <a href='https://telegra.ph/Telethon-pro-moduli-dlya-Hikka-10-30'>[Telethon-про модули для Hikka]</a>"

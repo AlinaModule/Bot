@@ -65,6 +65,7 @@ def handle_buttons(message):
                          reply_markup=keyboard, parse_mode='HTML')
 
     else:
+        send_welcome(bot, message.chat.id, CHANNEL_USERNAME)
         send_start_menu(bot, message.chat.id)
 
 bot.polling(none_stop=True)

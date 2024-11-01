@@ -29,7 +29,7 @@ def handle_buttons(message):
             article_text = "📀 <b>Статья:</b> <a href='https://telegra.ph/Pyrogram-razrabotka-bota-10-30'>[Pyrogram-про то как написать простого телеграм бота]</a>"
             bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button())
         elif text == "Telethon":
-            article_text = "⚙️ <b>Статья:<b> <[Telethon-про то как написать тг-бота](https://telegra.ph/Telethon-kak-napisat-svoego-telegram-bota-10-30)>"
+            article_text = "⚙️ <b>Статья:<b> <a href='https://telegra.ph/Telethon-kak-napisat-svoego-telegram-bota-10-30'>[Telethon-про то как написать тг-бота]</a>"
             bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button())
         elif text == "Telebot":
             article_text = "✨ <b>Статья:</b> <a href'https://telegra.ph/Telebot-razrabotka-bota-10-30'>[Telebot-о том как написать простого телеграм бота]</a>"

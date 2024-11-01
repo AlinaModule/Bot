@@ -1,6 +1,6 @@
 import telebot
 from config import TOKEN, CHANNEL_USERNAME
-from utils import send_welcome, send_start_menu, create_back_button
+from utils import send_welcome, send_start_menu, create_back_button, author_info
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -9,6 +9,10 @@ def start_command(message):
     send_welcome(bot, message.chat.id, CHANNEL_USERNAME)
     send_start_menu(bot, message.chat.id)
 
+@bot.message_handler(commands=['author'])
+def author_command(message):
+    author_info(bot, message.chat.id)
+
 @bot.message_handler(func=lambda message: True)
 def handle_buttons(message):
     chat_id = message.chat.id
@@ -16,20 +20,20 @@ def handle_buttons(message):
 
     if text in ["Hikka-Telethon", "RimTUB-Pyrogram", "Pyrogram", "Telethon", "Telebot"]:
         if text == "Hikka-Telethon":
-            article_text = "🎆 **Статья:** <[Telethon-про модули для Hikka](https://telegra.ph/Telethon-pro-moduli-dlya-Hikka-10-30)>"
-            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
+            article_text = "🎆 <b>Статья:</b> <a href='https://telegra.ph/Telethon-pro-moduli-dlya-Hikka-10-30'>[Telethon-про модули для Hikka]</a>"
+            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button())
         elif text == "RimTUB-Pyrogram":
-            article_text = "💉 **Статья:** <[RimTUB-про то как написать для него модуль](https://telegra.ph/Pyrogram-pro-moduli-dlya-RimTUB-10-30)>"
-            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
+            article_text = "💉 <b>Статья:</b> <a href='https://telegra.ph/Pyrogram-pro-moduli-dlya-RimTUB-10-30'>[RimTUB-про то как написать для него модуль]</a>"
+            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button())
         elif text == "Pyrogram":
-            article_text = "📀 **Статья:** <[Pyrogram-про то как написать простого телеграм бота](https://telegra.ph/Pyrogram-razrabotka-bota-10-30)>"
-            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
+            article_text = "📀 <b>Статья:</b> <a href='https://telegra.ph/Pyrogram-razrabotka-bota-10-30'>[Pyrogram-про то как написать простого телеграм бота]</a>"
+            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button())
         elif text == "Telethon":
-            article_text = "⚙️ **Статья:** <[Telethon-про то как написать тг-бота](https://telegra.ph/Telethon-kak-napisat-svoego-telegram-bota-10-30)>"
-            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
+            article_text = "⚙️ <b>Статья:<b> <[Telethon-про то как написать тг-бота](https://telegra.ph/Telethon-kak-napisat-svoego-telegram-bota-10-30)>"
+            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button())
         elif text == "Telebot":
-            article_text = "✨ **Статья:** <[Telebot-о том как написать простого телеграм бота](https://telegra.ph/Telebot-razrabotka-bota-10-30)>"
-            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="Markdown", reply_markup=create_back_button())
+            article_text = "✨ <b>Статья:</b> <a href'https://telegra.ph/Telebot-razrabotka-bota-10-30'>[Telebot-о том как написать простого телеграм бота]</a>"
+            bot.send_message(chat_id, article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button())
 
     elif text == "Юзерботы":
         hikka_telethon_button = telebot.types.KeyboardButton("Hikka-Telethon")

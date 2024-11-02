@@ -11,19 +11,14 @@ def start_command(message):
 
 @bot.message_handler(commands=['botinfo'])
 def o_bote_command(message):
-
     try:
         chat_member = bot.get_chat_member(CHANNEL_USERNAME, message.chat.id)
-        if chat_member.status not in ['mamber', 'administrator', 'creator']:
+        if chat_member.status not in ['member', 'administrator', 'creator']:
             send_welcome(bot, message.chat.id, CHANNEL_USERNAME)
             return
     except Exception as e:
         print(f'error: {e}')
-        
     o_bote(bot, message.chat.id)
-
-    else:
-        send_start_menu(bot, message.chat.id)
         
 @bot.message_handler(func=lambda message: True)
 def handle_buttons(message):

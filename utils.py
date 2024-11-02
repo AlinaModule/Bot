@@ -2,15 +2,10 @@ import telebot
 from telebot import types
 
 def send_welcome(bot, chat_id, CHANNEL_USERNAME):
-    """Отправляет приветственное сообщение после проверки подписки."""
-    try:
-        chat_member = bot.get_chat_member(CHANNEL_USERNAME, chat_id)
-        if chat_member.status in ['member', 'administrator', 'creator']:
-            bot.send_message(
-                chat_id,
-                "✨ <b>Приветствую тебя в этом боте!</b>\n\n<b>С помощью него ты сможешь написать самого простого телеграм бота или модуль для какого-либо юзербота, не отрицаю что скоро в боте будет ещё много новых функций ♡</b>",
-                parse_mode='HTML')
-            else:
+  """Отправляет приветственное сообщение после проверки подписки."""
+  try:
+    chat_member = bot.get_chat_member(CHANNEL_USERNAME, chat_id)
+    if chat_member.status not in ['member', 'administrator', 'creator']:
       keyboard = types.InlineKeyboardMarkup()
       subscribe_button = types.InlineKeyboardButton(text="Подписаться", url=f"https://t.me/{CHANNEL_USERNAME}")
       keyboard.add(subscribe_button)
@@ -20,9 +15,15 @@ def send_welcome(bot, chat_id, CHANNEL_USERNAME):
         parse_mode='HTML',
         reply_markup=keyboard
       )
+    else:
+      bot.send_message(
+        chat_id,
+        "✨ Приветствую тебя в этом боте!\n\nС помощью него ты сможешь написать самого простого телеграм бота или модуль для какого-либо юзербота, не отрицаю что скоро в боте будет ещё много новых функций ♡",
+        parse_mode='HTML'
+      )
   except Exception as e:
     print(f'Ошибка при проверке подписки: {e}')
-
+      
 def o_bote(bot, chat_id):
     """инфо о боте"""
     bot.send_message(

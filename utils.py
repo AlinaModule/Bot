@@ -13,7 +13,7 @@ def send_welcome(bot, chat_id, channel_username):
     except Exception as e:
         print(f'Ошибка при проверке подписки: {e}')
 
-def o_bote(bot, chai_id):
+def o_bote(bot, chat_id):
     """инфо о боте"""
     bot.send_message(
         chat_id,
@@ -28,7 +28,7 @@ def send_start_menu(bot, chat_id):
 
     keyboard.add(userbots_button, tg_bots_button)
 
-    bot.send_message(chat_id, "💫 <b>Выберите направление:</b>", reply_markup=keyboard)
+    bot.send_message(chat_id, "💫 <b>Выберите направление:</b>", reply_markup=keyboard, parse_mode='HTML')
 
 def create_back_button():
     """Создает клавиатуру с одной кнопкой 'Назад'"""

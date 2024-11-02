@@ -1,6 +1,6 @@
 import telebot
 from config import TOKEN, CHANNEL_USERNAME
-from utils import send_welcome, send_start_menu, create_back_button, author_info
+from utils import send_welcome, send_start_menu, create_back_button, o_bote
 
 bot = telebot.TeleBot(TOKEN)
 

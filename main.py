@@ -4,7 +4,7 @@ import re
 from config import TOKEN, CHANNEL_USERNAME
 from utils import send_welcome, send_start_menu, create_back_button, o_bote
 
-app = Client("my_bot", bot_token=TOKEN, api_id=284726637, api_hash="dc6ef4cd93a26131aa5881052149049") 
+app = Client("my_bot", bot_token=TOKEN, api_id=28472663, api_hash="dc6ef4cd93a26131aa5881052149049") 
 
 PREFIX = "/"
 

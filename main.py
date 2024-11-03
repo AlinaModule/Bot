@@ -8,12 +8,12 @@ app = Client("my_bot", bot_token=TOKEN)
 
 PREFIX = "/"
 
-@app.on_message(filters.command(f"{PREFIX}start", prefixes=["/", "!", ".", "*"],)
+@app.on_message(filters.command(f"{PREFIX}start", prefixes=["/", "!", ".", "*"],))
 async def start_command(client, message):
     await send_welcome(client, message.chat.id, CHANNEL_USERNAME)
     await send_start_menu(client, message.chat.id)
 
-@app.on_message(filters.command(f"{PREFIX}botinfo", prefixes=["/", "!", ".", "*"],)
+@app.on_message(filters.command(f"{PREFIX}botinfo", prefixes=["/", "!", ".", "*"],))
 async def o_bote_command(client, message):
     try:
         chat_member = await client.get_chat_member(CHANNEL_USERNAME, message.chat.id)

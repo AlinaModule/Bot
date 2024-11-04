@@ -52,27 +52,28 @@ async def process_callback_hikka(callback_query: types.CallbackQuery):
   await callback_query.answer()
 
 @dp.callback_query_handler(lambda c: c.data == 'RimTUB-Pyrogram')
-async def process_callback_rimtub(callback_query: types.CallbackQuery):    article_text = "💉 <b>Статья:</b> <a href='https://telegra.ph/Pyrogram-pro-moduli-dlya-RimTUB-10-30'>[RimTUB-про то как написать для него модуль]</a>"
-    await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
-    await callback_query.answer()
+async def process_callback_rimtub(callback_query: types.CallbackQuery):
+  article_text = "💉 <b>Статья:</b> <a href='https://telegra.ph/Pyrogram-pro-moduli-dlya-RimTUB-10-30'>[RimTUB-про то как написать для него модуль]</a>"
+  await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
+  await callback_query.answer()
 
 @dp.callback_query_handler(lambda c: c.data == 'Pyrogram')
 async def process_callback_pyrogram(callback_query: types.CallbackQuery):
-    article_text = "📀 <b>Статья:</b> <a href='https://telegra.ph/Pyrogram-razrabotka-bota-10-30'>[Pyrogram-про то как написать простого телеграм бота]</a>"
-    await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
-    await callback_query.answer()
+  article_text = "📀 <b>Статья:</b> <a href='https://telegra.ph/Pyrogram-razrabotka-bota-10-30'>[Pyrogram-про то как написать простого телеграм бота]</a>"
+  await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
+  await callback_query.answer()
 
 @dp.callback_query_handler(lambda c: c.data == 'Telethon')
 async def process_callback_telethon(callback_query: types.CallbackQuery):
-    article_text = "⚙️ <b>Статья:</b> <a href='https://telegra.ph/Telethon-kak-napisat-svoego-telegram-bota-10-30'>[Telethon-про то как написать тг-бота]</a>"
-    await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
-    await callback_query.answer()
+  article_text = "⚙️ <b>Статья:</b> <a href='https://telegra.ph/Telethon-kak-napisat-svoego-telegram-bota-10-30'>[Telethon-про то как написать тг-бота]</a>"
+  await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
+  await callback_query.answer()
 
 @dp.callback_query_handler(lambda c: c.data == 'Telebot')
 async def process_callback_telebot(callback_query: types.CallbackQuery):
-    article_text = "✨ <b>Статья:</b> <a href'https://telegra.ph/Telebot-razrabotka-bota-10-30'>[Telebot-о том как написать простого телеграм бота]</a>"
-    await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
-    await callback_query.answer()
+  article_text = "✨ <b>Статья:</b> <a href'https://telegra.ph/Telebot-razrabotka-bota-10-30'>[Telebot-о том как написать простого телеграм бота]</a>"
+  await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
+  await callback_query.answer()
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)

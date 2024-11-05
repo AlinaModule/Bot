@@ -47,6 +47,18 @@ async def handle_alias(message: types.Message):
  else:
   await message.reply("Неизвестная команда.")
 
+@dp.callback_query_handler(text_contains="back")
+async def back_callback(call: CallbackQuery, state: FSMContext):
+  if call.data == "back_from_tg_bots":
+   await send_main_menu(call.bot, call.message.chat.id)
+  if call.data == "back_from_us":
+   await send_main_menu(call.bot, call.message.chat.id)
+  if call.data == 'back_from_tl":
+   await send_main_menu(call.bot, call.message.chat.id)
+  else:
+    await call.message.edit_text("Ошибка: Неизвестное состояние")
+    await call.answer()
+   
 @dp.callback_query_handler(lambda c: c.data == 'back')
 async def process_callback_back(callback_query: types.CallbackQuery):
  await callback_query.message.edit_text("💫 Выберите направление:", reply_markup=create_main_menu(bot, callback_query.message.chat.id), parse_mode='HTML')
@@ -59,7 +71,8 @@ async def process_callback_userbots(callback_query: types.CallbackQuery):
    types.InlineKeyboardButton("Hikka-Telethon", callback_data="Hikka-Telethon"),
    types.InlineKeyboardButton("RimTUB-Pyrogram", callback_data="RimTUB-Pyrogram"),
    types.InlineKeyboardButton("Свой юзербот", callback_data="Свой_userbot"),
-          )
+   types.InlineKeyboardButton("В меню", callback_data="back_from_us") 
+  )
   await callback_query.message.edit_text("Выберите юзербота/библиотеку:", reply_markup=keyboard, parse_mode='HTML')
   await callback_query.answer()
  else:
@@ -74,6 +87,7 @@ async def process_callback_tg_bots(callback_query: types.CallbackQuery):
    types.InlineKeyboardButton("Pyrogram", callback_data="Pyrogram"),
    types.InlineKeyboardButton("Telebot", callback_data="Telebot"),
    types.InlineKeyboardButton("Aiogram", callback_data="Aiogram"),
+   types.InlineKeyboardButton("Назад", callback_data="back_from_tg_bots") 
   )
   await callback_query.message.edit_text("Выберите библиотеку для написания бота:", reply_markup=keyboard, parse_mode='HTML')
   await callback_query.answer()
@@ -84,8 +98,10 @@ async def process_callback_tg_bots(callback_query: types.CallbackQuery):
 @dp.callback_query_handler(lambda c: c.data == 'Hikka-Telethon')
 async def process_callback_hikka(callback_query: types.CallbackQuery):
  if await check_subscription(bot, callback_query.message.chat.id, CHANNEL_USERNAME):
+  keyboard = types.InlineKeyboardMarkup("В меню", callback_data="back_from_tl") 
+  )
   article_text = "🎆 Статья: [Telethon-про модули для Hikka]"
-  await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=create_back_button(bot, callback_query.message.chat.id))
+  await callback_query.message.edit_text(article_text, disable_web_page_preview=True, parse_mode="HTML", reply_markup=keyboard)
   await callback_query.answer()
  else:
   await callback_query.message.edit_text("Сначала подпишись на канал!", reply_markup=create_back_button(bot, callback_query.message.chat.id))
